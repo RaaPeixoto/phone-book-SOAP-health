@@ -32,7 +32,10 @@ export default function PhoneBook(): JSX.Element {
     handleEditContact,
     closeModal,
     isEditModal,
-    openEditContactModal
+    openEditContactModal,
+    showConfirmBox,
+    filterContacts,
+    setFilterContacts,
   } = usePhoneBookController();
 
   return (
@@ -50,7 +53,7 @@ export default function PhoneBook(): JSX.Element {
 
         {isModalOpen && (
           <ContactModal
-          isEditModal={isEditModal}
+            isEditModal={isEditModal}
             form={form}
             closeModal={closeModal}
             handleForm={handleForm}
@@ -60,12 +63,18 @@ export default function PhoneBook(): JSX.Element {
         )}
         <Searchbar>
           <SearchIcon />
-          <SearchInput placeholder="Search for contact by last name..." />
+          <SearchInput
+            value={filterContacts}
+            onChange={(e) => setFilterContacts(e.target.value)}
+            type="text"
+            placeholder="Search for contact by last name..."
+          />
         </Searchbar>
         <ContactsUl>
           {contacts.map((contact: Contact, index: number) => (
+             contact.lastName.toLowerCase().includes(filterContacts.toLowerCase()) &&
             <ContactLi key={contact.id}>
-              <ContactInfos onClick={()=>openEditContactModal(contact)}>
+              <ContactInfos onClick={() => openEditContactModal(contact)}>
                 <ContactFullName>
                   {contact.firstName} {contact.lastName}
                 </ContactFullName>
@@ -74,7 +83,7 @@ export default function PhoneBook(): JSX.Element {
                   {contact.phoneNumber}
                 </ContactPhoneNumber>
               </ContactInfos>
-              <TrashButton>
+              <TrashButton onClick={() => showConfirmBox(contact)}>
                 <TrashIcon />
               </TrashButton>
             </ContactLi>

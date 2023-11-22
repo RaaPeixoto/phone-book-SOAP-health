@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './App.css';
+
 import PhoneBook from './components/PhoneBook';
 import GlobalStyle from './assets/styles/globalStyle';
 import { ToastContainer } from 'react-toastify';

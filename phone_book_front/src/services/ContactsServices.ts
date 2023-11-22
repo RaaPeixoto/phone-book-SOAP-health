@@ -30,9 +30,9 @@ export async function getAllContacts(): Promise<Contact[]> {
   }
 
 
-  export async function deleteContact(id:string): Promise<void> {
+  export async function deleteContact(contact:Contact): Promise<void> {
     try {
-      await axios.delete(`${BASE_URL}/contact/${id}`);
+      await axios.delete(`${BASE_URL}/contact/${contact.id}`);
   
     } catch (error) {
       throw error; 

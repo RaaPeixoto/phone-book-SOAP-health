@@ -105,8 +105,9 @@ const ContactLi = styled.li`
 
 const ContactsUl = styled.ul`
   margin-top: 30px;
+
   max-height:60vh;
-  overflow-y:scroll;
+  overflow-y:auto;
   padding:10px 0;
 `;
 const ContactFullName = styled.h3`
