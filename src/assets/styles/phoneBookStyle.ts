@@ -21,7 +21,7 @@ const TitleContainer = styled.div`
   margin-bottom: 40px;
   h2 {
     font-size: 45px;
-    font-weight: 900;
+    font-weight: 500;
   }
 `;
 const Searchbar = styled.div`
@@ -47,7 +47,7 @@ const SearchInput = styled.input`
   width: 100%;
   color: #73797f;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   border:none;
   &:focus-visible{
     outline:none;
@@ -60,7 +60,7 @@ const AddContactContainer = styled.div`
   align-items:center;
   h3 {
     font-size: 30px;
-    font-weight: 700;
+    font-weight: 500;
   }
   button {
     border: none;
@@ -69,7 +69,7 @@ const AddContactContainer = styled.div`
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    font-weight: 700;
+    font-weight: 500;
   }
 `;
 
@@ -108,12 +108,12 @@ const ContactsUl = styled.ul`
 `;
 const ContactFullName = styled.h3`
   font-size: 26px;
-  font-weight: 700;
+  font-weight: 500;
 `;
 const ContactPhoneNumber = styled.p`
   color: #a6a6a6;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 500;
   margin-top: 10px;
   display: flex;
   align-items: center;

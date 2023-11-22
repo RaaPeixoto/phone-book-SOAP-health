@@ -1,99 +1,86 @@
-import React, { ChangeEvent, useState } from 'react';
-import usePhoneBookController, { Contact } from '../controllers/PhoneBookController';
-import {PageContainer,
+import usePhoneBookController from "../controllers/PhoneBookController";
+import { Contact } from "../interfaces/Contact";
+import ContactModal from "./ContactModal";
+import {
+  PageContainer,
   PhoneBookIcon,
   TitleContainer,
   AddContactContainer,
   ContentContainer,
   ContactLi,
-  ContactsUl,ContactFullName,ContactInfos,PhoneIcon,ContactPhoneNumber,Searchbar,SearchIcon,SearchInput,  
+  ContactsUl,
+  ContactFullName,
+  ContactInfos,
+  PhoneIcon,
+  ContactPhoneNumber,
+  Searchbar,
+  SearchIcon,
+  SearchInput,
   TrashButton,
-  TrashIcon} from "../assets/styles/phoneBookStyle";
-interface PhoneBookProps {
-  controller: ReturnType<typeof usePhoneBookController>;
-}
+  TrashIcon,
+} from "../assets/styles/phoneBookStyle";
 
-const PhoneBook: React.FC<PhoneBookProps> = ({ controller }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [form,setForm] =useState({
-    firstName:'',
-    lastName:'',
-    phoneNumber:''
-  })
-
-  function handleForm(e: ChangeEvent<HTMLInputElement>) {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
-    console.log(form)
-  
-  }
-  const handleAddContact = () => {
-    controller.addContact(form);
-    setIsModalOpen(false);
-    setForm({
-      firstName:'',
-      lastName:'',
-      phoneNumber:''
-    })
-  };
+export default function PhoneBook(): JSX.Element {
+  const {
+    contacts,
+    addContact,
+    isModalOpen,
+    setIsModalOpen,
+    form,
+    handleForm,
+    handleAddContact,
+    handleEditContact,
+    closeModal,
+    isEditModal,
+    openEditContactModal
+  } = usePhoneBookController();
 
   return (
     <PageContainer>
-  
-        <TitleContainer>
-          <PhoneBookIcon/>
-          <h2>Phone Book App</h2>
-        </TitleContainer>
+      <TitleContainer>
+        <PhoneBookIcon />
+        <h2>Phone Book App</h2>
+      </TitleContainer>
 
-        <ContentContainer>
+      <ContentContainer>
         <AddContactContainer>
           <h3>Contacts</h3>
           <button onClick={() => setIsModalOpen(true)}>+ Add Contact</button>
         </AddContactContainer>
 
-
-      {/* Modal para adicionar contatos */}
-    {/*   {isModalOpen && (
-        <div>
-          <h3>Add Contact</h3>
-          <label>
-            First Name:
-            <input type="text" name="firstName" value={form.firstName} onChange={(e) => handleForm(e)} />
-          </label>
-          <label>
-            Last Name:
-            <input type="text" name="lastName" value={form.lastName} onChange={(e) => handleForm(e)} />
-          </label>
-          <label>
-            Number:
-            <input type="text" name="phoneNumber" value={form.phoneNumber} onChange={(e) => handleForm(e)} />
-          </label>
-          <button onClick={handleAddContact}>Add Contact</button>
-        </div>
-      )} */}
-
-      {/* Lista de contatos */}
-      <Searchbar> 
-        <SearchIcon/>
-        <SearchInput placeholder="Search for contact by last name..."/>
-      </Searchbar>
-      <ContactsUl>
-  {controller.contacts.map((contact: Contact, index: number) => (
-    <ContactLi key={index}>
-      <ContactInfos> 
-      <ContactFullName>{contact.firstName} {contact.lastName} </ContactFullName>
- <ContactPhoneNumber> <PhoneIcon/>{contact.phoneNumber}</ContactPhoneNumber>
-   </ContactInfos>
-<TrashButton>
-  <TrashIcon/>
-</TrashButton>
-      </ContactLi>
-  ))}
-</ContactsUl>
-</ContentContainer>
+        {isModalOpen && (
+          <ContactModal
+          isEditModal={isEditModal}
+            form={form}
+            closeModal={closeModal}
+            handleForm={handleForm}
+            handleAddContact={handleAddContact}
+            handleEditContact={handleEditContact}
+          />
+        )}
+        <Searchbar>
+          <SearchIcon />
+          <SearchInput placeholder="Search for contact by last name..." />
+        </Searchbar>
+        <ContactsUl>
+          {contacts.map((contact: Contact, index: number) => (
+            <ContactLi key={contact.id} onClick={()=>openEditContactModal(contact)}>
+              <ContactInfos>
+                <ContactFullName>
+                  {contact.firstName} {contact.lastName}{" "}
+                </ContactFullName>
+                <ContactPhoneNumber>
+                  <PhoneIcon />
+                  {contact.phoneNumber}
+                </ContactPhoneNumber>
+              </ContactInfos>
+              <TrashButton>
+                <TrashIcon />
+              </TrashButton>
+            </ContactLi>
+          ))}
+        </ContactsUl>
+      </ContentContainer>
     </PageContainer>
   );
-};
-
-export default PhoneBook;
-
+}
