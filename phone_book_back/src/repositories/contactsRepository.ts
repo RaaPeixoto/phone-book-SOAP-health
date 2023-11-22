@@ -3,7 +3,7 @@
 
 import { Contact } from "../models/contactModel";
 
-export let contacts = [{ id: "0", firstName: "string", lastName: "string", phoneNumber: "string" }];
+export let contacts = [{ id: "321", firstName: "Raísa", lastName: "Cadete", phoneNumber: "+55 31 99172-3724" }];
 
 
 export async function findContacts(): Promise<Contact[]> {
