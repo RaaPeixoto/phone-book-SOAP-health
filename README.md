@@ -1,46 +1,101 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# &#128222; Phone Book App
 
-In the project directory, you can run:
 
-### `npm start`
+- [Application Description](#app-description)
+- [Technologies and Libraries](#technologies-and-libraries-used)
+- [How to Run](#how-to-run)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Application Description <a name="app-description"></a>
 
-### `npm test`
+This is a Full-Stack project developed as part of the practical test for the SOAP Health company. The Phone Book App application is a tool that allows users to manage their phone contacts effectively, where you can view, create, edit, and delete contacts.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Technologies and Libraries <a name="technologies-and-libraries-used"></a>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1024px-Typescript_logo_2020.svg.png" width="16"> [Typescript](https://www.typescriptlang.org/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- <img src="https://reactjs.org/favicon.ico" width="16"> [React](https://reactjs.org/)
+- <img src="https://avatars.githubusercontent.com/u/20658825?s=200&v=4" width="16"> [Styled Components](https://styled-components.com/)
+- <img src="https://react-icons.github.io/react-icons/favicon.ico" width="16"> [React Icons](https://react-icons.github.io/react-icons/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+- <img src="https://fkhadra.github.io/react-toastify/img/favicon.ico" width="16"> [React Toastify](https://fkhadra.github.io/react-toastify/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- <img src="https://nodejs.org/static/images/logo.svg" width="16"> [Node.js](https://nodejs.org/)
+- <img src="https://miro.medium.com/v2/resize:fit:599/1*gV9AeJImpGRTlDs_560erw.png" width="16"> [REST](https://en.wikipedia.org/wiki/Representational_state_transfer)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- <img src="https://miro.medium.com/v2/resize:fit:1400/1*3ZOwBIddHRkF7AkM2DjG1g.png" width="16"> [Axios](https://axios-http.com/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- <img src="https://expressjs.com/images/favicon.png" width="16"> [Express](https://expressjs.com/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+Note: No database was used (only mocked data for Proof of Concept).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+How to Run <a name="how-to-run"></a>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
+
+1. Clone this repository to your machine.
+2. Navigate to the project folder.
+3. In the project root, go to the back-end repository folder:
+
+```
+cd phone_book_back
+```
+4. Run the following command in the terminal to install dependencies:
+```
+npm install
+```
+
+4. Make sure port 5000 is available:
+
+```
+lsof -i :5000
+```
+
+If port 5000 is in use, the command will show information about the process using it. Otherwise, if the port is available, the command will not return any output.
+
+4.1 If it's in use, use the following command to release the port:
+
+```
+fuser -k 5000/tcp
+```
+
+5. Start the back-end application with the command (keep the back-end application running):
+
+```
+npm run dev
+```
+
+6. In another terminal tab, in the project root, go to the front-end repository folder:
+
+```
+cd phone_book_front
+```
+7. Run the following command in the terminal to install dependencies:
+```
+npm install
+```
+
+8. Make sure port 3000 is available:
+
+```
+lsof -i :3000
+```
+If port 3000 is in use, the command will show information about the process using it. Otherwise, if the port is available, the command will not return any output.
+
+8.1 If it's in use, use the following command to release the port:
+
+```
+fuser -k 3000/tcp
+```
+
+9. Start the front-end application with the command:
+
+```
+npm run start
+```
+The application will be available at [http://localhost:3000](http://localhost:3000) in your browser.
