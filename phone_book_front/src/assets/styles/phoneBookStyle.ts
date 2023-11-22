@@ -9,10 +9,16 @@ const PageContainer = styled.div`
   align-items: center;
   padding: 40px 0;
   background-color: #f6f6f6;
+  @media (max-width: 600px) {
+    padding: 40px 20px;
+    }
 `;
 const PhoneBookIcon = styled(FaAddressBook)`
   font-size: 40px;
   margin-right: 10px;
+  @media (max-width: 600px) {
+      font-size: 30px;
+    }
 `;
 
 const TitleContainer = styled.div`
@@ -22,7 +28,12 @@ const TitleContainer = styled.div`
   h2 {
     font-size: 45px;
     font-weight: 500;
+    @media (max-width: 600px) {
+      font-size: 30px;
+    }
   }
+ 
+
 `;
 const Searchbar = styled.div`
   width: 100%;
@@ -61,6 +72,9 @@ const AddContactContainer = styled.div`
   h3 {
     font-size: 30px;
     font-weight: 500;
+    @media (max-width: 600px) {
+      font-size: 20px;
+    }
   }
   button {
     border: none;
@@ -70,7 +84,11 @@ const AddContactContainer = styled.div`
     border-radius: 5px;
     cursor: pointer;
     font-weight: 500;
+    @media (max-width: 600px) {
+      font-size: 15px;
+    }
   }
+
 `;
 
 const ContentContainer = styled.div`
@@ -113,6 +131,9 @@ const ContactsUl = styled.ul`
 const ContactFullName = styled.h3`
   font-size: 26px;
   font-weight: 500;
+  @media (max-width: 600px) {
+      font-size: 20px;;
+    }
 `;
 const ContactPhoneNumber = styled.p`
   color: #a6a6a6;
@@ -121,6 +142,9 @@ const ContactPhoneNumber = styled.p`
   margin-top: 10px;
   display: flex;
   align-items: center;
+  @media (max-width: 600px) {
+      font-size: 15px;
+    }
 `;
 const ContactInfos = styled.div`
 cursor:pointer;
@@ -131,6 +155,9 @@ const PhoneIcon = styled(FaPhoneAlt)`
   color: #a6a6a6;
   font-size: 15px;
   margin-right: 7px;
+  @media (max-width: 600px) {
+      font-size: 12px;
+    }
 `;
 const TrashButton = styled.button`
 border:none;
@@ -140,10 +167,16 @@ display:flex;
 align-items:center;
 border-radius:5px;
 cursor:pointer;
+@media (max-width: 600px) {
+      padding: 12px;
+    }
 `
 const TrashIcon  = styled(FaTrashAlt)`
 color:#FFFFFF;
 font-size:20px;
+@media (max-width: 600px) {
+      font-size: 15px;
+    }
 `
 export {
   PageContainer,
