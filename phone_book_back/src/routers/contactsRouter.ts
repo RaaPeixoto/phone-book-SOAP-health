@@ -1,6 +1,6 @@
 import { deleteContact, getContacts, postContact, putContact } from "../controllers/contactsController";
 import { Router } from "express";
-
+import{verifyNewUserSchema,verifyEditUserSchema} from "../middlewares/contactsMiddleware"
 
 
 
@@ -8,7 +8,7 @@ import { Router } from "express";
 const contactsRouter = Router();
 
 contactsRouter.get("/contacts",getContacts);
-contactsRouter.post("/contact",postContact);
+contactsRouter.post("/contact",verifyNewUserSchema,postContact);
 contactsRouter.delete("/contact/:contactId",deleteContact);
-contactsRouter.put("/contact/",putContact);
+contactsRouter.put("/contact/",verifyEditUserSchema,putContact);
 export default contactsRouter;
