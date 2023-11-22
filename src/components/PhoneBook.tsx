@@ -64,10 +64,10 @@ export default function PhoneBook(): JSX.Element {
         </Searchbar>
         <ContactsUl>
           {contacts.map((contact: Contact, index: number) => (
-            <ContactLi key={contact.id} onClick={()=>openEditContactModal(contact)}>
-              <ContactInfos>
+            <ContactLi key={contact.id}>
+              <ContactInfos onClick={()=>openEditContactModal(contact)}>
                 <ContactFullName>
-                  {contact.firstName} {contact.lastName}{" "}
+                  {contact.firstName} {contact.lastName}
                 </ContactFullName>
                 <ContactPhoneNumber>
                   <PhoneIcon />

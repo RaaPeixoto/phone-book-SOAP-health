@@ -29,4 +29,14 @@ export async function getAllContacts(): Promise<Contact[]> {
     }
   }
 
+
+  export async function deleteContact(id:string): Promise<void> {
+    try {
+      await axios.delete(`${BASE_URL}/contact/${id}`);
+  
+    } catch (error) {
+      throw error; 
+    }
+  }
+
   

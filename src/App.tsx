@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import PhoneBook from './components/PhoneBook';
 import GlobalStyle from './assets/styles/globalStyle';

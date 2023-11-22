@@ -1,9 +1,7 @@
 import { Contact } from "../interfaces/Contact";
-import { BASE_URL } from "../constants/url";
-import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
-import axios from "axios";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { getAllContacts, postContact, putContact } from "../services/ContactsServices";
-import { showError } from "../utils/showToastfyMessages";
+import { showError, showSuccess } from "../utils/showToastfyMessages";
 interface PhoneBookController {
   contacts: Contact[];
   addContact: (contact: Contact) => void;
@@ -65,6 +63,7 @@ function usePhoneBookController(): PhoneBookController {
     try {
       await addContact(form);
       closeModal() 
+      showSuccess("Success adding contact!")
     } catch (err) {
       showError("Error when adding contact");
       console.error(err);
@@ -77,6 +76,7 @@ function usePhoneBookController(): PhoneBookController {
     try {
       await putContact(form);
       closeModal() 
+      showSuccess("Success editing contact!")
     } catch (err) {
       showError("Error when editing contact");
       console.error(err);

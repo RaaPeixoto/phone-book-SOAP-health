@@ -105,6 +105,9 @@ const ContactLi = styled.li`
 
 const ContactsUl = styled.ul`
   margin-top: 30px;
+  max-height:60vh;
+  overflow-y:scroll;
+  padding:10px 0;
 `;
 const ContactFullName = styled.h3`
   font-size: 26px;
@@ -120,6 +123,7 @@ const ContactPhoneNumber = styled.p`
 `;
 const ContactInfos = styled.div`
 cursor:pointer;
+width:100%;
 `;
 
 const PhoneIcon = styled(FaPhoneAlt)`
